@@ -1,0 +1,16 @@
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+$color: (
+  'black': #0D0D0D,
+  'dark-gray': #6C6C6C,
+);
