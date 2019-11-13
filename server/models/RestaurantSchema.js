@@ -2,6 +2,8 @@
 var mongoose=require('mongoose'),
 	Schema=mongoose.Schema;
 
+//need a method to create Item from within the Restaurant
+
 var restaurantSchema=new Schema({
 	name: {type:String, required: true},
 	description: String,
@@ -14,6 +16,9 @@ var restaurantSchema=new Schema({
 		zipcode: {type: Number, required: true}
 	},
 	category: {type: String},
+	pickUp: Boolean,
+	delivery: Boolean,
+	rating: {type: Number}, //need to see how to set it auto to blank???
 	created_at: Date
 });
 
