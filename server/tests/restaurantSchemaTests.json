@@ -1,0 +1,15 @@
+{
+	"entries": [
+		{
+			"name": "Mama's Best",
+			"description": "Only the best",
+			"location":{
+				"addressLine1":"AAA",
+				"city":"Miami",
+				"state":"Florida",
+				"country":"USA",
+				"zipcode":33192
+			}
+		}
+	]
+}
