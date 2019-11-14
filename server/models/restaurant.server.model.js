@@ -6,6 +6,9 @@ const Categories=Object.freeze({
 	Mexican: 'Mexican',
 	Asian: 'Asian',
 	'Fast Food': 'Fast Food',
+	Breakfast: 'Breakfast',
+	Lunch: 'Lunch',
+	Dinner: 'Dinner'
 })
 
 var restaurantSchema=new Schema({
@@ -22,11 +25,14 @@ var restaurantSchema=new Schema({
 	category: [{type: String, enum: Object.values(Categories)}],
 	pickUp: Boolean,
 	delivery: Boolean,
-	rating: {type: Number}, //need to see how to set it auto to blank???
+	rating: {type: Number}, //need to see how to set it auto to blank??? maybe set as -1 and have front end handle it?
 	created_at: Date
 });
 
-restaurantSchema.pre('save',function(next){
+//https://mongoosejs.com/docs/validation.html
+//Validation is middleware. Mongoose registers validation as a pre('save') hook on every schema by default.
+
+restaurantSchema.pre('save',function(next,err){
 	var currentDate=new Date();
 
 	this.created_at=currentDate;
