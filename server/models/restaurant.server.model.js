@@ -23,7 +23,7 @@ var restaurantSchema=new Schema({
 		country: {type:String, required: true},
 		zipcode: {type: Number, required: true}
 	},
-	item: [{type:Schema.Types.ObjectID, ref:'Item'}] //array of item schema objects
+	item: [{type:Schema.Types.ObjectID, ref:'Item'}],
 	category: [{type: String, enum: Object.values(Categories)}],
 	pickUp: Boolean,
 	delivery: Boolean,
