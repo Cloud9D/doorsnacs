@@ -1,6 +1,7 @@
 
 var mongoose=require('mongoose'),
-	Schema=mongoose.Schema;
+	Schema=mongoose.Schema,
+	Item=require('../models/items.server.model');
 
 const Categories=Object.freeze({
 	Mexican: 'Mexican',
@@ -22,6 +23,7 @@ var restaurantSchema=new Schema({
 		country: {type:String, required: true},
 		zipcode: {type: Number, required: true}
 	},
+	item: [{type:Schema.Types.ObjectID, ref:'Item'}] //array of item schema objects
 	category: [{type: String, enum: Object.values(Categories)}],
 	pickUp: Boolean,
 	delivery: Boolean,

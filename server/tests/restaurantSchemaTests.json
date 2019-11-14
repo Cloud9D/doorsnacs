@@ -9,7 +9,20 @@
 				"state":"Florida",
 				"country":"USA",
 				"zipcode":33192
-			}
+			},
+			"category":"Mexican"
+		},
+		{
+			"name": "Dada's Best",
+			"description": "Only the second best",
+			"location":{
+				"addressLine1":"AAA",
+				"city":"Miami",
+				"state":"Florida",
+				"country":"USA",
+				"zipcode":33192
+			},
+			"category":["Asian","Fast Food"]
 		}
 	]
 }

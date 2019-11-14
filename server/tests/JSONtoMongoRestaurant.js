@@ -6,7 +6,7 @@
 var fs = require('fs'),
     mongoose = require('mongoose'), 
     Schema = mongoose.Schema, 
-    Restaurant = require('../models/RestaurantSchema.js'), 
+    Restaurant = require('../models/restaurant.server.model.js'), 
     config = require('../config/config.js');
 
 mongoose.set('useCreateIndex',true);
@@ -28,7 +28,6 @@ fs.readFile('restaurantSchemaTests.json','utf8',function(err,data){
   }
   var restaurantData=JSON.parse(data);
   var array=restaurantData.entries;
-
   array.forEach(function(element){
     var current=new Restaurant(element);
     current.save(function(err){
