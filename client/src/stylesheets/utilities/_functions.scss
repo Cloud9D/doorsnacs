@@ -1,10 +1,13 @@
+@import
+  './variables';
+
 /// Returns URL to an image based on its path
 /// @param {String} $path - image path
 /// @param {String} $base [$base-url] - base URL
 /// @return {Url}
 /// @require $base-url
 @function image($path, $base: $base-url) {
-  @return asset($base, 'images/', $path);
+  @return asset($base, 'assets/', $path);
 }
 
 /// Returns URL to a font based on its path
@@ -14,4 +17,10 @@
 /// @require $base-url
 @function font($path, $base: $base-url) {
   @return asset($base, 'fonts/', $path);
+}
+
+/// Returns color
+/// @param {String} $color-name - color name
+@function color($color-name) {
+  @return map-get($colors, $color-name);
 }

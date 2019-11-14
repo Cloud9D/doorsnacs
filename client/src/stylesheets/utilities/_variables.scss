@@ -10,7 +10,13 @@ $breakpoints: (
   'large': 1024px,
 ) !default;
 
-$color: (
+$colors: (
   'black': #0D0D0D,
   'dark-gray': #6C6C6C,
+);
+
+$padding-sizes: (
+  small: 15px,
+  medium: 30px,
+  large: 45px
 );

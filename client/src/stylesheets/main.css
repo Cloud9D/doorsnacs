@@ -3,4 +3,42 @@ $text-font-stack: 'Open Sans',
                   'Helvetica Neue Light',
                   'Helvetica Neue',
                   'Helvetica', 'Arial';
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html, body {
+  width: 100%;
+}
+
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+@type List
+$text-font-stack: 'Open Sans',
+                  'Helvetica Neue Light',
+                  'Helvetica Neue',
+                  'Helvetica', 'Arial';
+.hero {
+  background-image: asset("Cookies.jpg", "assets/", "../");
+}
 /*# sourceMappingURL=main.css.map */

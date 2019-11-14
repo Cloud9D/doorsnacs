@@ -1,2 +1,14 @@
+/// utility imports
 @import
-  'utilities/variables';
+  'utilities/variables',
+  'utilities/functions';
+
+/// layout imports
+@import
+  'layout/footer',
+  'layout/header',
+  'layout/grid';
+
+/// component imports
+@import
+  'components/hero';
