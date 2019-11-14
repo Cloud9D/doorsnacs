@@ -1,0 +1,19 @@
+{
+    "entries": [                                                           
+        {
+                "Title":"Chocolate Chip",
+                "Price": 3.99 ,
+                "Type":["Desert"]
+        },                                                                 
+        {  
+                "Title":"Garnola",
+                "Price": 5.99 ,                                            
+                "Type":["Snack","Health"],
+                "Warnings":["Peanut"]
+        },     
+        {                                                                  
+                "Title":"Greek Salad",
+		"Price": 10.99,                                           
+                "Type":["Veggie","Health"]                            
+        }]
+}
