@@ -1,7 +1,11 @@
 
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
-
+const Warnings = Object.freeze({
+	Peanut : 'Peanut',
+	Shellfish : 'Shellfish',
+	Gluten : 'Gluten' 
+});
 /* Create your schema */
 var itemSchema = new Schema({
         Title: {type: String, required: true},
