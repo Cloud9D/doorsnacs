@@ -31,7 +31,6 @@ var restaurantSchema=new Schema({
 
 //https://mongoosejs.com/docs/validation.html
 //Validation is middleware. Mongoose registers validation as a pre('save') hook on every schema by default.
-//add another comment
 
 restaurantSchema.pre('save',function(next,err){
 	var currentDate=new Date();
