@@ -5,16 +5,14 @@ var mongoose = require('mongoose'),
 /* Create your schema */
 var itemSchema = new Schema({
         Title: {type: String, required: true},
-	Price:ls Number,
-     	Catogory:[String],
-	Warnings:[String],
-	DeliveryMethod: Boolean,
-	Picture:{data:Buffer, contentType:String},
-	Rating: Number,
-	created_at: Date,                                                  
+        Price:{type: Number, required: true},
+        Type:[{type: String, required:true}],
+        Warnings:[{type:String, required:true}],
+        Picture:String,
+        created_at: Date,                                                  
         updated_at: Date
 });
-listingSchema.pre('save', function(next) {
+itemSchema.pre('save', function(next) {
   
   var currentDate = new Date();
 
@@ -26,3 +24,6 @@ listingSchema.pre('save', function(next) {
     this.created_at = currentDate;
  next();
 });
+var Item = mongoose.model('Item', itemSchema);
+
+module.exports = Item;
