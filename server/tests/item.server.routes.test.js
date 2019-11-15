@@ -5,7 +5,7 @@ var should = require('should'),
 
 /* Global variables */
 var app, agent, item, id;
-
+Item = Item.modl;
 
 /* Unit tests for testing server side routes for the listings API */
 describe('Item CRUD tests', function() {

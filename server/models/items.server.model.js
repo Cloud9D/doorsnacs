@@ -1,13 +1,8 @@
 
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
-const warnings = Object.freeze({
-	Peanut : 'Peanut',
-	Shellfish : 'Shellfish',
-	Gluten : 'Gluten' 
-});
 /* Create your schema */
-var itemSchema = new Schema({
+var schem = new Schema({
         Title: {type: String, required: true},
         Price:{type: Number, required: true},
         Type:[{type: String, required:true}],
@@ -16,7 +11,7 @@ var itemSchema = new Schema({
         created_at: Date,                                                  
         updated_at: Date
 });
-itemSchema.pre('save', function(next) {
+schem.pre('save', function(next) {
   
   var currentDate = new Date();
 
@@ -28,6 +23,6 @@ itemSchema.pre('save', function(next) {
     this.created_at = currentDate;
  next();
 });
-var Item = mongoose.model('Item', itemSchema);
+var modl = mongoose.model('Item', schem);
 
-module.exports = Item;
+module.exports = {modl,schem};

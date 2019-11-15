@@ -1,5 +1,5 @@
-var Item = require('../models/items.server.model.js')
-
+var ItemMod = require('../models/items.server.model.js');
+var Item = ItemMod.modl;
 exports.create = function(req, res) {
 	var item = new Item(req.body);
 	item.save()
