@@ -6,8 +6,9 @@
 var fs = require('fs'),
     mongoose = require('mongoose'), 
     Schema = mongoose.Schema, 
-    Item = require('../models/items.server.model'), 
-    config = require('../config/config.js');
+    ItemMod = require('../models/items.server.model'), 
+    config = require('../config/config.js'),
+    Item =ItemMod.modl;
 
 /* Connect to your database using mongoose - remember to keep your key secret*/
 //see https://mongoosejs.com/docs/connections.html
