@@ -6,7 +6,7 @@ import { Form } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import './Header.css';
-import logo from "./logo.png"
+import logo from './logo.png'
 
 export default class Header extends React.Component{
     render(){
@@ -18,13 +18,18 @@ export default class Header extends React.Component{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link style={{fontSize: "17px",paddingRight: "20px"}} href="#home">Home</Nav.Link>
-                        <Nav.Link style={{fontSize: "17px"}} href="#link">Popular</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#home">Home</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#link">Popular</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px"}} href="#link">Profile</Nav.Link>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search for Food" className="mr-sm-2" />
+                    <Form inline style={{paddingRight:""}}>
+                        <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
                         <Button variant="outline-success">Search</Button>
                     </Form>
+                    <Nav style={{paddingLeft:"400px"}}>
+                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#home">Sign In</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px"}} href="#link">Sign Up</Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         );

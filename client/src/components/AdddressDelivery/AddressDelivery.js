@@ -9,9 +9,9 @@ export default class AddressDelivery extends React.Component{
     render(){
         return(
             <Form inline>
-            <FormControl style={{paddingLeft:"150px",paddingRight:"150px" ,textAlign:"center"}} type="text" placeholder="Enter Delivery Address" className="mr-sm-2" />
-            <Button variant="outline-success">GO</Button>
-        </Form>
+                <FormControl style={{paddingLeft:"150px",paddingRight:"150px" ,textAlign:"center"}} type="text" placeholder="Enter Delivery Address" className="mr-sm-2" />
+                <div className="testing"><Button variant="outline-success">GO</Button></div>
+            </Form>
         );
     }
 } 
