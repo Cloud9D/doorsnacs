@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
-const Warnings = Object.freeze({
+const warnings = Object.freeze({
 	Peanut : 'Peanut',
 	Shellfish : 'Shellfish',
 	Gluten : 'Gluten' 
