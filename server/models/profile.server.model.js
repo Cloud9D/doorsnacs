@@ -1,11 +1,14 @@
                                                                           
 var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
-
+    Schema = mongoose.Schema,
+var Item = require('../models/items.server.model.js'),
+var Resturant = require('../models/resturant.server.model.js');
 /* Create your schema */
 var profileSchema = new Schema({
-        Name: {type: String, required: true},
-        Cart:[{type: String, required:true}],
+        AccountID: String
+	Name: {type: String, required: true},
+        Cart:[Item],
+	Resturant:Resturant,
         created_at: Date,                                                  
         updated_at: Date
 });

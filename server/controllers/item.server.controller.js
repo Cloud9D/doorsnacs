@@ -1,4 +1,4 @@
-var Item = require('../models/item.server.model.js')
+var Item = require('../models/items.server.model.js')
 
 exports.create = function(req, res) {
 	var item = new Item(req.bod);
