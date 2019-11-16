@@ -1,0 +1,76 @@
+/* global gapi */
+import React from 'react';
+
+const success = function() {
+    console.log("test"); 
+  }
+
+export default class GoogleSignIn extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { isSignedIn: false, }
+    }
+
+    onSuccess() {
+        console.log("HEY");
+        var currentUser = auth2.currentUser.get();
+        var profile = currentUser.getId();
+
+    }
+    
+    onLoginFailed(err) {
+        this.setState({
+            isSignedIn: false,
+            error: err,
+        })
+    }
+
+    componentDidMount() {
+        const successCallback = this.onSuccess;
+        window.gapi.load('auth2', function() {
+            window.gapi.signin2.render('loginButton',{
+                width: 200,
+                height: 50,
+                client_id: '589768282368-uueqjllnr6vhvekuv58j1oftjo4mvm6f.apps.googleusercontent.com',
+                onSuccess: successCallback.bind(this)
+            });
+        });
+    }
+
+    render() {
+        return (
+            <div>
+               <div id="loginButton"/>
+            </div>    
+        );
+    }
+  }
+
+
+
+
+/* global gapi */
+import React from 'react';
+
+export default class GoogleSignIn extends React.Component {
+    onSignIn(googleUser) {
+        gapi.load('auth2', function() {
+            var auth2 = gapi.auth2.init();
+            auth2.then(function() {
+                var currentUser = auth2.currentUser.get();
+                var profile = currentUser.getId();
+                console.log(profile);
+            });
+        });
+
+    }
+
+    render() {
+        return (
+            <div>
+                <div class="g-signin2" data-onsuccess={this.onSignIn} data-theme="light"></div>
+                <button onClick={this.onSignIn}></button>
+            </div>    
+        );
+    }
+  }

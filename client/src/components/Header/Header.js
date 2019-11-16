@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import GoogleSignIn from '../Google/GoogleSignIn'
+import GoogleSignOut from '../Google/GoogleSignOut'
 import './Header.css';
 import logo from '../../assets/logo.png'
+import { GoogleLogin } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
+
+
 
 export default class Header extends React.Component{
     render(){
@@ -22,13 +27,13 @@ export default class Header extends React.Component{
                         <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#popular">Popular</Nav.Link>
                         <Nav.Link style={{fontSize: "17px"}} href="#profile">Profile</Nav.Link>
                     </Nav>
-                    <Form inline style={{paddingRight:""}}>
+                    <Form inline style={{paddingRight:"400px"}}>
                         <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
                         <Button variant="outline-dark">Search</Button>
                     </Form>
-                    <Nav style={{paddingLeft:"400px"}}>
-                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#signin">Sign In</Nav.Link>
-                        <Nav.Link style={{fontSize: "17px"}} href="#signup">Sign Up</Nav.Link>
+                    <Nav style={{paddingLeft:"40px", paddingRight:"10px"}}>
+                        <div style={{paddingRight:"15px"}}><GoogleSignIn></GoogleSignIn></div>
+                        <div style={{paddingTop:"8px"}}><GoogleSignOut ></GoogleSignOut></div>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
