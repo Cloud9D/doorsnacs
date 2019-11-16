@@ -8,10 +8,6 @@ import GoogleSignIn from '../Google/GoogleSignIn'
 import GoogleSignOut from '../Google/GoogleSignOut'
 import './Header.css';
 import logo from '../../assets/logo.png'
-import { GoogleLogin } from 'react-google-login';
-import { GoogleLogout } from 'react-google-login';
-
-
 
 export default class Header extends React.Component{
     render(){
@@ -27,11 +23,11 @@ export default class Header extends React.Component{
                         <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#popular">Popular</Nav.Link>
                         <Nav.Link style={{fontSize: "17px"}} href="#profile">Profile</Nav.Link>
                     </Nav>
-                    <Form inline style={{paddingRight:"400px"}}>
+                    <Form inline style={{paddingRight:"300px"}}>
                         <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
                         <Button variant="outline-dark">Search</Button>
                     </Form>
-                    <Nav style={{paddingLeft:"40px", paddingRight:"10px"}}>
+                    <Nav style={{paddingRight:"10px"}}>
                         <div style={{paddingRight:"15px"}}><GoogleSignIn></GoogleSignIn></div>
                         <div style={{paddingTop:"8px"}}><GoogleSignOut ></GoogleSignOut></div>
                     </Nav>
