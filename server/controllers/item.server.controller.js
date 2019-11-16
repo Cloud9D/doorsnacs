@@ -1,8 +1,6 @@
 
-=======
 var ItemMod = require('../models/items.server.model.js');
 var Item = ItemMod.modl;
->>>>>>> 59509e6ad810db9a84615e36de7d37fbaed3ac5e
 exports.create = function(req, res) {
 	var item = new Item(req.body);
 	item.save()
@@ -78,5 +76,5 @@ exports.itemByID = function(req,res,next,id){
      		 req.item = item;
       		next();
     	}
-  });	
-}
+  });
+};

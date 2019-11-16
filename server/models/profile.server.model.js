@@ -1,18 +1,19 @@
                                                                           
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema,
-var Item = require('../models/items.server.model.js'),
-var Resturant = require('../models/resturant.server.model.js');
+    Item = require('../models/items.server.model.js'),
+//var Resturant = require('../models/resturant.server.model.js'),
+    itemSchema = Item.schem;
 /* Create your schema */
-var profileSchema = new Schema({
-        AccountID: String
+var schem = new Schema({
+        AccountID: String,
 	Name: {type: String, required: true},
-        Cart:[Item],
-	Resturant:Resturant,
+        Cart:[itemSchema],
+//	Resturant:Resturant,
         created_at: Date,                                                  
         updated_at: Date
 });
-profileSchema.pre('save', function(next) {
+schem.pre('save', function(next) {
   
   var currentDate = new Date();
 
@@ -24,7 +25,7 @@ profileSchema.pre('save', function(next) {
     this.created_at = currentDate;
  next();
 });
-var Profile = mongoose.model('Profile', profileSchema);
+var modl = mongoose.model('Profile', schem);
 
-module.exports = Profile;
+module.exports = {modl,schem};
 

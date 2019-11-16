@@ -2,9 +2,10 @@ var path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
-  	bodyParser = require('body-parser'),
-	itemRouter = require('../routes/item.server.routes'); 
-
+    bodyParser = require('body-parser'),
+    itemRouter = require('../routes/item.server.routes'),
+    profileRouter = require('../routes/profile.server.routes'); 
+	
 
 module.exports.init = () => {
     /* 
@@ -29,6 +30,7 @@ module.exports.init = () => {
     // add a router
 
 	app.use('/api/item', itemRouter);
+	app.use('/api/profile',profileRouter);
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
         app.use(express.static(path.join(__dirname, '../../client/build')));
