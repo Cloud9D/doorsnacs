@@ -1,3 +1,4 @@
+
 var ItemMod = require('../models/items.server.model.js');
 var Item = ItemMod.modl;
 exports.create = function(req, res) {
@@ -75,5 +76,5 @@ exports.itemByID = function(req,res,next,id){
      		 req.item = item;
       		next();
     	}
-  });	
-}
+  });
+};
