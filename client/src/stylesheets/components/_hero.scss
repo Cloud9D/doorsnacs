@@ -3,5 +3,39 @@
   '../utilities/functions';
 
 .hero {
-  background-image: image('../','Cookies.jpg');
+  margin: 0;
+  padding: 50px 25px;
+  background-image: url('../assets/Cookies.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+
+  span {
+    float: left;
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+  form {
+    clear: both;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+
+    input {
+      /// width: 100%;
+      vertical-align: middle;
+      margin: 5px 10px 5px 0;
+      padding: 10px;
+      background-color: color('white');
+      border: 1px solid color('light-gray');
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: color('black');
+      border: 1px solid color('light-gray');
+      color: color('white');
+    }
+  }
 }

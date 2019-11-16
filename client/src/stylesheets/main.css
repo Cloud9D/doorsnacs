@@ -1,44 +1,80 @@
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
-.header ul {
-  margin: 0;
+.menu ul {
+  margin: 0 1rem;
   padding: 0;
   list-style: none;
+}
+
+.menu ul li {
+  display: inline;
+}
+
+.menu .nav-link {
+  padding: 1rem 0.5rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.menu .nav-brand {
+  padding: 1rem 0;
+}
+
+.menu .nav-left-align {
+  float: left;
+}
+
+.menu .nav-right-align {
+  float: right;
 }
 
 html, body {
   width: 100%;
 }
 
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
-@type List
-$text-font-stack: 'Open Sans',
-                  'Helvetica Neue Light',
-                  'Helvetica Neue',
-                  'Helvetica', 'Arial';
 .hero {
-  background-image: asset("Cookies.jpg", "assets/", "../");
+  margin: 0;
+  padding: 50px 25px;
+  background-image: url("../assets/Cookies.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+}
+
+.hero span {
+  float: left;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.hero form {
+  clear: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero form input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+}
+
+.hero form button {
+  padding: 10px 20px;
+  background-color: #0D0D0D;
+  border: 1px solid #DDDDDD;
+  color: #FFFFFF;
+}
+
+body {
+  color: #0D0D0D;
+  font: normal 100% 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial';
 }
 /*# sourceMappingURL=main.css.map */

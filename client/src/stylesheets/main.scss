@@ -1,8 +1,3 @@
-/// utility imports
-@import
-  'utilities/variables',
-  'utilities/functions';
-
 /// layout imports
 @import
   'layout/footer',
@@ -12,3 +7,6 @@
 /// component imports
 @import
   'components/hero';
+
+@import
+  'base/typography';

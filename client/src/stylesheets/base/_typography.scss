@@ -1,0 +1,12 @@
+@import
+  '../utilities/variables',
+  '../utilities/functions';
+
+body {
+  color: color('black');
+  font: normal 100% 'Open Sans',
+                    'Helvetica Neue Light',
+                    'Helvetica Neue',
+                    'Helvetica',
+                    'Arial';
+}
