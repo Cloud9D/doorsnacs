@@ -10,8 +10,13 @@
 				"country":"USA",
 				"zipcode":33192
 			},
-			"category":"Mexican",
-			"item":["5dcdd417bc6623064423edcc"]
+			"items":[{
+				"Title":"Apples",
+        		"Price":3.99,
+        		"Type": [],
+        		"Warnings": []
+			}],
+			"category":"Mexican"
 		},
 		{
 			"name": "Dada's Best",
