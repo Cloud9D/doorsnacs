@@ -1,4 +1,5 @@
-var Restaurant = require('../models/restaurant.server.model');
+var RestaurantMod = require('../models/restaurant.server.model');
+Restaurant=RestaurantMod.modl;
 
 exports.create = function(req, res) {
         var restaurant = new Restaurant(req.body);
@@ -16,6 +17,16 @@ exports.read = function(req, res) {
         var restaurant = req.restaurant;
         res.send(restaurant);
 };
+
+exports.readAll = function (req, res) {
+	 Restaurant.find()
+        .then( restaurants => {                                                                                                       
+                res.send(restaurants);                                                                                                                                                                                      
+        }).catch(err => {
+                res.status(404).send(err.message);                                                                                                                                                                   
+        }); 
+};
+
 /*
 exports.update = function(req,res){
         var restaurant = req.restaurant;
@@ -60,7 +71,7 @@ exports.delete = function(req,res){
         });     
 };
 
-exports.profileByID = function(req,res,next,id){                                                                                                                                                                        
+exports.restaurantByID = function(req,res,next,id){                                                                                                                                                                        
         Restaurant.findById(id).exec(function(err, restaurant) {
                 if(err) {
                 res.status(400).send(err);

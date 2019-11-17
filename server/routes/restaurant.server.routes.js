@@ -7,7 +7,7 @@ router.route('/')
 	.post(restaurant.create);
 router.route('/:restaurantId')
 	.get(restaurant.read)
-	.put(restaurant.update)
+//	.put(restaurant.update)
 	.delete(restaurant.delete);
 router.param('restaurantId',restaurant.restaurantByID); 
 module.exports = router;

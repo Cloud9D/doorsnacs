@@ -6,7 +6,8 @@
 var fs = require('fs'),
     mongoose = require('mongoose'), 
     Schema = mongoose.Schema, 
-    Restaurant = require('../models/restaurant.server.model.js'), 
+    RestaurantMod = require('../models/restaurant.server.model.js'), 
+    Restaurant=RestaurantMod.modl,
     config = require('../config/config.js');
 
 mongoose.set('useCreateIndex',true);
