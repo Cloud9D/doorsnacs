@@ -6,8 +6,9 @@ export default class GoogleSignIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
+            isAuthing: true,
             isSignedIn: false,
-            Name: 'Sign Out'
+            Name: 'Signed Out'
         }
     }
 
@@ -33,13 +34,13 @@ export default class GoogleSignIn extends React.Component {
 
         this.setState({
             isSignedIn: googleUser.isSignedIn(),
-            Name: googleUser.getBasicProfile().getName()
+            Name: googleUser.getBasicProfile().getName(),
+            isAuthing: false
         });
 
         console.log(this.state.isSignedIn);
-        console.log(this.state.Name);
     }
-    
+
     componentDidMount() {
         const successCallback = this.onSuccess;
         window.gapi.load('auth2', function() {
@@ -49,8 +50,7 @@ export default class GoogleSignIn extends React.Component {
                 client_id: '589768282368-uueqjllnr6vhvekuv58j1oftjo4mvm6f.apps.googleusercontent.com',
                 onSuccess: successCallback.bind(this)
             });
-        });
-        
+        })
     }
 
     render = () => {
