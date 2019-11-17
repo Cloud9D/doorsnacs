@@ -1,8 +1,9 @@
 
 var mongoose=require('mongoose'),
 	Schema=mongoose.Schema,
-	Item=require('../models/items.server.model');
+	item=require('../models/items.server.model');
 
+//the enums for category
 const Categories=Object.freeze({
 	Mexican: 'Mexican',
 	Asian: 'Asian',
@@ -23,17 +24,15 @@ var restaurantSchema=new Schema({
 		country: {type:String, required: true},
 		zipcode: {type: Number, required: true}
 	},
-	item: [{type:Schema.Types.ObjectID, ref:'Item'}],
+	itemsForSale: [item.schem],
 	category: [{type: String, enum: Object.values(Categories)}],
 	pickUp: Boolean,
 	delivery: Boolean,
-	rating: {type: Number}, //need to see how to set it auto to blank??? maybe set as -1 and have front end handle it?
+	rating: {type: Number, default: -1},
 	created_at: Date
 });
 
-//https://mongoosejs.com/docs/validation.html
-//Validation is middleware. Mongoose registers validation as a pre('save') hook on every schema by default.
-
+//before saving, add created_at date
 restaurantSchema.pre('save',function(next,err){
 	var currentDate=new Date();
 
@@ -41,8 +40,6 @@ restaurantSchema.pre('save',function(next,err){
 
 	next();
 })
-
-//need a method to create Item from within the Restaurant
 
 var RestaurantListing=mongoose.model('RestaurantListing',restaurantSchema);
 
