@@ -19,9 +19,9 @@ export default class Header extends React.Component{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#home">Home</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="Home">Home</Nav.Link>
                         <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#popular">Popular</Nav.Link>
-                        <Nav.Link style={{fontSize: "17px"}} href="#profile">Profile</Nav.Link>
+                        <Nav.Link style={{fontSize: "17px"}} href="Profile">Profile</Nav.Link>
                     </Nav>
                     <Form inline style={{paddingRight:"300px"}}>
                         <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />

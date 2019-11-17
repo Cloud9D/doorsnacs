@@ -1,10 +1,6 @@
 /* global gapi */
 import React from 'react';
 
-const success = function() {
-    console.log("test"); 
-  }
-
 export default class GoogleSignIn extends React.Component {
     constructor(props) {
         super(props);
@@ -12,11 +8,11 @@ export default class GoogleSignIn extends React.Component {
     }
 
     onSuccess() {
-        var authInstance = gapi.auth2.getAuthInstance();
-        var googleUser = authInstance.currentUser.get();
+        var authIntstance = gapi.auth2.getAuthInstance();
+        var googleUser = authIntstance.currentUser.get();
         var profileId = googleUser.getId();
 
-        var test = gapi.auth2.getAuthInstance().currentUser.get().getId();
+        //var test = gapi.auth2.getAuthInstance().currentUser.get().getId();
         console.log(profileId);
     }
     
@@ -26,7 +22,7 @@ export default class GoogleSignIn extends React.Component {
             error: err,
         })
     }
-
+    
     componentDidMount() {
         const successCallback = this.onSuccess;
         window.gapi.load('auth2', function() {
