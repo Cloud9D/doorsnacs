@@ -10,7 +10,7 @@
 				"country":"USA",
 				"zipcode":33192
 			},
-			"items":[{
+			"itemsForSale":[{
 				"Title":"Apples",
         		"Price":3.99,
         		"Type": [],
