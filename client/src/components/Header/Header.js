@@ -23,14 +23,13 @@ export default class Header extends React.Component{
                         <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#popular">Popular</Nav.Link>
                         <Nav.Link style={{fontSize: "17px"}} href="Profile">Profile</Nav.Link>
                     </Nav>
-                    <Form inline style={{paddingRight:"300px"}}>
+                    <Form inline style={{position: "fixed", left: "35%"}}>
                         <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
                         <Button variant="outline-dark">Search</Button>
+
+                        <div style={{paddingLeft:"375px"}}><GoogleSignIn></GoogleSignIn></div>
                     </Form>
-                    <Nav style={{paddingRight:"10px"}}>
-                        <div style={{paddingRight:"15px"}}><GoogleSignIn></GoogleSignIn></div>
-                        <div style={{paddingTop:"8px"}}><GoogleSignOut ></GoogleSignOut></div>
-                    </Nav>
+
                 </Navbar.Collapse>
             </Navbar>
         );

@@ -1,26 +1,43 @@
 /* global gapi */
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 export default class GoogleSignIn extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isSignedIn: false, }
-    }
-
-    onSuccess() {
-        var authIntstance = gapi.auth2.getAuthInstance();
-        var googleUser = authIntstance.currentUser.get();
-        var profileId = googleUser.getId();
-
-        //var test = gapi.auth2.getAuthInstance().currentUser.get().getId();
-        console.log(profileId);
-    }
-    
-    onLoginFailed(err) {
-        this.setState({
+        this.state = { 
             isSignedIn: false,
-            error: err,
-        })
+            Name: 'Sign Out'
+        }
+    }
+
+    signOut = () => {
+        var auth2 = gapi.auth2.getAuthInstance();
+        var googleUser = auth2.currentUser.get();
+
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+
+        this.setState({
+            isSignedIn: googleUser.isSignedIn(),
+            Name: 'Signed Out'
+        });
+        console.log(this.state.Name)
+        window.location.reload();
+    }
+
+    onSuccess = () => {
+        var auth2 = gapi.auth2.getAuthInstance();
+        var googleUser = auth2.currentUser.get();
+
+        this.setState({
+            isSignedIn: googleUser.isSignedIn(),
+            Name: googleUser.getBasicProfile().getName()
+        });
+
+        console.log(this.state.isSignedIn);
+        console.log(this.state.Name);
     }
     
     componentDidMount() {
@@ -33,13 +50,24 @@ export default class GoogleSignIn extends React.Component {
                 onSuccess: successCallback.bind(this)
             });
         });
+        
     }
 
-    render() {
-        return (
-            <div>
-               <div id="loginButton"/>
-            </div>    
-        );
+    render = () => {
+        if(!this.state.isSignedIn){
+            return (
+                <div>
+                    <div id="loginButton"/>
+                </div>    
+            );
+        }
+        else{
+            return (
+                <div>
+                    <p style={{display:"inline", paddingRight:"20px", fontSize:"20px"}}>Welcome {this.state.Name}</p>
+                    <Button variant="outline-dark" onClick={this.signOut.bind(this)}>Sign Out</Button>
+                </div>    
+            );
+        }
     }
   }
