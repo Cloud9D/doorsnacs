@@ -1,9 +1,11 @@
-const path = require('path'),
+var path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/examples.server.routes');
+    itemRouter = require('../routes/item.server.routes'),
+    profileRouter = require('../routes/profile.server.routes'); 
+	
 
 module.exports.init = () => {
     /* 
@@ -17,7 +19,7 @@ module.exports.init = () => {
     mongoose.set('useFindAndModify', false);
 
     // initialize app
-    const app = express();
+    var app = express();
 
     // enable request logging for development debugging
     app.use(morgan('dev'));
@@ -26,8 +28,9 @@ module.exports.init = () => {
     app.use(bodyParser.json());
 
     // add a router
-    app.use('/api/example', exampleRouter);
 
+	app.use('/api/item', itemRouter);
+	app.use('/api/profile',profileRouter);
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
         app.use(express.static(path.join(__dirname, '../../client/build')));

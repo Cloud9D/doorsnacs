@@ -1,13 +1,15 @@
-
+                                                                          
 var mongoose = require('mongoose'), 
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    Item = require('../models/items.server.model.js'),
+//var Resturant = require('../models/resturant.server.model.js'),
+    itemSchema = Item.schem;
 /* Create your schema */
 var schem = new Schema({
-        Title: {type: String, required: true},
-        Price:{type: Number, required: true},
-        Type:[{type: String, required:true}],
-        Warnings:[{type:String, required:true}],
-        Picture:String,
+        AccountID: String,
+	Name: {type: String, required: true},
+        Cart:[itemSchema],
+//	Resturant:Resturant,
         created_at: Date,                                                  
         updated_at: Date
 });
@@ -23,6 +25,7 @@ schem.pre('save', function(next) {
     this.created_at = currentDate;
  next();
 });
-var modl = mongoose.model('Item', schem);
+var modl = mongoose.model('Profile', schem);
 
 module.exports = {modl,schem};
+
