@@ -1,8 +1,6 @@
 /* global gapi */
 
 import React, { Component } from 'react';
-import { gapi } from 'gapi-script';
-import { loadAuth2 } from 'gapi-script';
 
 import Cards from '../../components/Cards/Cards'
 import AddressDelivery from '../../components/AdddressDelivery/AddressDelivery';
