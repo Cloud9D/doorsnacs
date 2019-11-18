@@ -6,7 +6,6 @@ export default class GoogleSignIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            isAuthing: true,
             isSignedIn: false,
             Name: ''
         }

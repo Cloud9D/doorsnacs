@@ -34,10 +34,6 @@ export default class Profile extends React.Component{
                 isAuthing: false,
             });
         }
-
-        //console.log(this.state.isAuthing)
-        //console.log(googleUser.isSignedIn());
-        //console.log(googleUser.getBasicProfile().getId());
     }
 
     componentDidMount = () => {
