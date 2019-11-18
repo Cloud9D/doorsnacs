@@ -8,7 +8,7 @@ export default class GoogleSignIn extends React.Component {
         this.state = { 
             isAuthing: true,
             isSignedIn: false,
-            Name: 'Signed Out'
+            Name: ''
         }
     }
 
@@ -22,7 +22,7 @@ export default class GoogleSignIn extends React.Component {
 
         this.setState({
             isSignedIn: googleUser.isSignedIn(),
-            Name: 'Signed Out'
+            Name: ''
         });
         console.log(this.state.Name)
         window.location.reload();
@@ -37,7 +37,6 @@ export default class GoogleSignIn extends React.Component {
             Name: googleUser.getBasicProfile().getName(),
             isAuthing: false
         });
-
         console.log(this.state.isSignedIn);
     }
 

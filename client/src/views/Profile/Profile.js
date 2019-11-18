@@ -12,7 +12,7 @@ export default class Profile extends React.Component{
         this.state = { 
             isAuthing : true,
             isSignedIn: false,
-            Name: 'Signed Out'
+            Name: ''
         }
     }
 
@@ -30,7 +30,7 @@ export default class Profile extends React.Component{
         else{
             this.setState({
                 isSignedIn: googleUser.isSignedIn(),
-                Name: "Signed Out",
+                Name: "",
                 isAuthing: false,
             });
         }
@@ -51,9 +51,12 @@ export default class Profile extends React.Component{
 
     render(){
         if(!this.state.isAuthing){
-            return(
-                <div>{this.state.Name}</div>
-            )
+            if(this.state.isSignedIn){
+                return(
+                    <div>{this.state.Name}</div>
+                )
+            }
+            else{return <div>Please Sign In and Refresh the Page</div>}
         }
         else {return null}
     }
