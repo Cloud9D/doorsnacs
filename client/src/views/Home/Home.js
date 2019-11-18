@@ -19,9 +19,9 @@ export default class Home extends React.Component{
                         </div>
                         <div  className="bootstrap-override-container">
                             <div className="row">
-                                <div class="bootstrap-override-col"> <Cards /></div>
-                                <div class="bootstrap-override-col"> <Cards /></div>
-                                <div class="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
                             </div>
                         </div>
                     </div>
@@ -31,9 +31,9 @@ export default class Home extends React.Component{
                         </div>
                         <div  className="bootstrap-override-container">
                             <div className="row">
-                                <div class="bootstrap-override-col"> <Cards /></div>
-                                <div class="bootstrap-override-col"> <Cards /></div>
-                                <div class="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
+                                <div className="bootstrap-override-col"> <Cards /></div>
                             </div>
                         </div>
                     </div>
