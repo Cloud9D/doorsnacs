@@ -83,7 +83,7 @@ describe('Item CRUD tests', function() {
     });
   });
   it('should be able to retrieve a single item', function(done) {
-    Item.findOne({Title: 'Garnola'}, function(err, item) {
+    Item.findOne({Title: 'Apples'}, function(err, item) {
       if(err) {
         console.log(err);
       } else {
@@ -92,8 +92,8 @@ describe('Item CRUD tests', function() {
           .end(function(err, res) {
             should.not.exist(err);
             should.exist(res);
-            res.body.Title.should.equal('Garnola');
-            res.body.Price.should.equal(5.99);
+            res.body.Title.should.equal('Apples');
+            res.body.Price.should.equal(3.99);
             res.body._id.should.equal(item._id.toString());
             done();
           });
@@ -104,7 +104,7 @@ describe('Item CRUD tests', function() {
     var updatedItem = { 
       Price: 37.44
     };
-    Item.findOne({Title: 'Garnola'}, function(err, item) {
+    Item.findOne({Title: 'Apples'}, function(err, item) {
       if(err) {
         console.log(err);
       } else {
@@ -141,6 +141,18 @@ describe('Item CRUD tests', function() {
       	});
       }
     });	
+  });
+  it('should read querry', function(done) {
+        var request= { querry:{AccountID: 3701}};
+        agent.post('/api/profile/account')
+          .send(request)
+          .expect(200)
+          .end(function(err, res) {                                                                                                                    
+            should.not.exist(err);
+            should.exist(res.body._id);
+            res.body.Name.should.equal('Marco');
+	    done();                                                          
+            });
   });
   it('should be able to delete a item', function(done) {
     agent.delete('/api/profile/' + id2)
