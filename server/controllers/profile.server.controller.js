@@ -11,7 +11,16 @@ exports.create = function(req, res) {
                 res.status(404).send(err.message);
         });
 };
-
+exports.readQ= function(req,res){
+	Profile.findOne(req.querry).exec(function(err, profile) {
+                if(err) {
+                res.status(400).send(err);
+                } else {
+                 console.log(profile);
+                 res.send( profile);
+                }
+	});
+};
 exports.read = function(req, res) {
         var profile = req.profile;
         res.send(profile);
