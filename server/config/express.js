@@ -4,8 +4,8 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     itemRouter = require('../routes/item.server.routes'),
-    profileRouter = require('../routes/profile.server.routes'); 
-	
+    profileRouter = require('../routes/profile.server.routes'),
+    restaurantRouter=require('../routes/restaurant.server.routes');
 
 module.exports.init = () => {
     /* 
@@ -31,6 +31,7 @@ module.exports.init = () => {
 
 	app.use('/api/item', itemRouter);
 	app.use('/api/profile',profileRouter);
+    app.use('/api/restaurant',restaurantRouter);
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
         app.use(express.static(path.join(__dirname, '../../client/build')));

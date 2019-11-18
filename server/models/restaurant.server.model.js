@@ -1,8 +1,7 @@
 
 var mongoose=require('mongoose'),
 	Schema=mongoose.Schema,
-	item=require('../models/items.server.model');
-
+	itemMod=require('../models/items.server.model');
 //the enums for category
 const Categories=Object.freeze({
 	Mexican: 'Mexican',
@@ -13,7 +12,7 @@ const Categories=Object.freeze({
 	Dinner: 'Dinner'
 })
 
-var restaurantSchema=new Schema({
+var schem=new Schema({
 	name: {type:String, required: true},
 	description: String,
 	location: {
@@ -24,7 +23,7 @@ var restaurantSchema=new Schema({
 		country: {type:String, required: true},
 		zipcode: {type: Number, required: true}
 	},
-	itemsForSale: [item.schem],
+	itemsForSale: [itemMod.schem],
 	category: [{type: String, enum: Object.values(Categories)}],
 	pickUp: Boolean,
 	delivery: Boolean,
@@ -33,7 +32,7 @@ var restaurantSchema=new Schema({
 });
 
 //before saving, add created_at date
-restaurantSchema.pre('save',function(next,err){
+schem.pre('save',function(next,err){
 	var currentDate=new Date();
 
 	this.created_at=currentDate;
@@ -41,6 +40,6 @@ restaurantSchema.pre('save',function(next,err){
 	next();
 })
 
-var RestaurantListing=mongoose.model('RestaurantListing',restaurantSchema);
+var modl=mongoose.model('RestaurantListing',schem);
 
-module.exports=RestaurantListing;
+module.exports={schem,modl};
