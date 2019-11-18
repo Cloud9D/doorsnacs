@@ -5,7 +5,6 @@ import { Form } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import GoogleSignIn from '../Google/GoogleSignIn'
-import GoogleSignOut from '../Google/GoogleSignOut'
 import './Header.css';
 import logo from '../../assets/logo.png'
 
