@@ -62,7 +62,7 @@ export default class GoogleSignIn extends React.Component {
         else{
             return (
                 <div>
-                    <p style={{display:"inline", paddingRight:"20px", fontSize:"20px"}}>Welcome {this.state.Name}</p>
+                    <p style={{display:"inline",paddingRight:"20px", fontSize:"20px"}}>Welcome {this.state.Name}</p>
                     <Button variant="outline-dark" onClick={this.signOut.bind(this)}>Sign Out</Button>
                 </div>    
             );
