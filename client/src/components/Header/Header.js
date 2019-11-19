@@ -10,25 +10,32 @@ import logo from '../../assets/logo.png'
 
 export default class Header extends React.Component{
     render(){
-        return(
-            <Navbar sticky="top" className="customNav" expand="lg">
-                <Navbar.Brand style={{fontSize: "25px", fontWeight: "bold", paddingRight: "50px"}} className="test" href="#home">
-                    <img alt="a" src={logo} width="60" height="50" style={{paddingRight: "10px"}} className="d-inline-block align-center"></img>
-                    {"  "}doorsnacs</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+        return (
+            <Navbar sticky="top" expand="lg" bg="white">
+                <Navbar.Brand>
+                    <img
+                        alt="doorsnacs logo"
+                        src={logo}
+                        width="60"
+                        height="60"
+                    />{' '}
+                    DoorSnacs
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse>
                     <Nav className="mr-auto">
-                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="Home">Home</Nav.Link>
-                        <Nav.Link style={{fontSize: "17px", paddingRight: "20px"}} href="#popular">Popular</Nav.Link>
-                        <Nav.Link style={{fontSize: "17px"}} href="Profile">Profile</Nav.Link>
+                        <Nav.Link href="Home">Home</Nav.Link>
+                        <Nav.Link href="Profile">Profile</Nav.Link>
                     </Nav>
-                    <Form inline style={{position: "fixed", left: "35%"}}>
-                        <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
-                        <Button variant="outline-dark">Search</Button>
-
-                        <div style={{paddingLeft:"30px"}}><GoogleSignIn></GoogleSignIn></div>
+                    <Form inline className="mr-sm-3">
+                        <FormControl
+                            type="text"
+                            placeholder="Search for Food"
+                            className="mr-sm-2"
+                        />
+                        <Button>Search</Button>
                     </Form>
-
+                    <GoogleSignIn />
                 </Navbar.Collapse>
             </Navbar>
         );
