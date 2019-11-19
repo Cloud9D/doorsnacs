@@ -31,9 +31,8 @@ export default class Profile extends React.Component{
     render(){
         let content;
         content = (
-        <div>{this.state.data}</div>
+        <div><RestaurantListings></RestaurantListings></div>
         )
-        
         return content;
     }
 }   
