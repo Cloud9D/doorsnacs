@@ -1,0 +1,19 @@
+.ProfileTop{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+.Profile-body {
+    background-color: #282c34;
+    min-height: 100vh;
+    color: black;
+}
+.IMG{
+    margin: auto;
+    padding-left: 30px;
+}
+.topBar{
+    padding-left: 50px;
+}

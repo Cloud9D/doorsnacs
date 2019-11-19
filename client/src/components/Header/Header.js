@@ -25,7 +25,6 @@ export default class Header extends React.Component{
                     <Form inline style={{position: "fixed", left: "35%"}}>
                         <FormControl style={{paddingRight:"280px", textAlign:"left"}} type="text" placeholder="Search for Food" className="mr-sm-2" />
                         <Button variant="outline-dark">Search</Button>
-
                         <div style={{paddingLeft:"30px"}}><GoogleSignIn></GoogleSignIn></div>
                     </Form>
 
