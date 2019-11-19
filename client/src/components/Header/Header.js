@@ -9,6 +9,11 @@ import './Header.css';
 import logo from '../../assets/logo.png'
 
 export default class Header extends React.Component{
+
+    getRestaurant(){
+
+    }
+
     render(){
         return (
             <Navbar sticky="top" expand="lg" bg="white">
@@ -26,6 +31,7 @@ export default class Header extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="Home">Home</Nav.Link>
                         <Nav.Link href="Profile">Profile</Nav.Link>
+                        <Nav.Link href="Restaurants">Restaurants</Nav.Link>
                     </Nav>
                     <Form inline className="mr-sm-3">
                         <FormControl
@@ -33,7 +39,7 @@ export default class Header extends React.Component{
                             placeholder="Search for Food"
                             className="mr-sm-2"
                         />
-                        <Button>Search</Button>
+                        <Button onChange={this.getRestaurant}>Search</Button>
                     </Form>
                     <GoogleSignIn />
                 </Navbar.Collapse>

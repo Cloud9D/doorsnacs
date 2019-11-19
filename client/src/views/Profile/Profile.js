@@ -1,10 +1,10 @@
 /* global gapi */
 
 import React, { Component } from 'react';
-
-import Cards from '../../components/Cards/Cards'
-import AddressDelivery from '../../components/AdddressDelivery/AddressDelivery';
-
+import Image from 'react-bootstrap/Image';
+import Cards from '../../components/Cards/Cards';
+import ProfileHold from '../../assets/profile.png'
+import './Profile.css';
 
 export default class Profile extends React.Component{
     constructor(props) {
@@ -46,14 +46,41 @@ export default class Profile extends React.Component{
     }
 
     render(){
+        let content;
         if(!this.state.isAuthing){
             if(this.state.isSignedIn){
-                return(
-                    <div>{this.state.Name}</div>
+                content = (
+                    <div className="ProfileTop">
+                        <div className="Profile-body">
+                            <div style={{backgroundColor:"#4b4a52", paddingTop:"50px", paddingBottom:"50px"}}>
+                                <div className="IMG">
+                                    <div style={{display:"inline-block", paddingRight:"25px"}}>
+                                        <Image src={ProfileHold} style={{width:"100px", height:"100px", backgroundColor:"Gray",}} roundedCircle />
+                                    </div>
+                                    <div style={{display:"inline-block", color:"whitesmoke"}}>
+                                        <h2>{this.state.Name}</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 )
             }
-            else{return <div>Please Sign In and Refresh the Page</div>}
+            else{
+                content = (
+                    <div className="ProfileTop">
+                        <div className="Profile-body">
+                            <div style={{color:"whitesmoke", textAlign:"center"}}>
+                                <h1 style={{paddingTop:"20%"}}>Please Sign In and Refresh the Page</h1>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         }
-        else {return null}
+        else {content = null}
+        
+        return content;
     }
 }   
