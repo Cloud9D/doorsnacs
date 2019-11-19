@@ -6,7 +6,6 @@ import './Home.css';
 export default class Home extends React.Component{
     render() {
         return (
-            <div className="App">
             <div className="container">
                 <div className="jumbotron px-md-5 hero">
                     <div className="row">
@@ -25,6 +24,7 @@ export default class Home extends React.Component{
                         <div className="col"><Cards /></div>
                     </div>
                 </div>
+
                 <div className="my-md-5">
                     <div className="row">
                         <h3>Popular Items Near You</h3>
@@ -35,7 +35,6 @@ export default class Home extends React.Component{
                         <div className="col"><Cards /></div>
                     </div>
                 </div>
-            </div>
             </div>
         );
     }
