@@ -16,8 +16,6 @@ export default class Profile extends React.Component{
         }
     }
 
-    
-
     enableGoogle = () => {
         var auth2 = gapi.auth2.getAuthInstance();
         var googleUser = auth2.currentUser.get();

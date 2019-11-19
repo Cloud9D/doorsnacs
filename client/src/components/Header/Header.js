@@ -26,6 +26,7 @@ export default class Header extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link href="Home">Home</Nav.Link>
                         <Nav.Link href="Profile">Profile</Nav.Link>
+                        <Nav.Link href="Restaurants">Restaurants</Nav.Link>
                     </Nav>
                     <Form inline className="mr-sm-3">
                         <FormControl

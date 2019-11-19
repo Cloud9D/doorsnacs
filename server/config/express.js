@@ -6,6 +6,7 @@ var path = require('path'),
     itemRouter = require('../routes/item.server.routes'),
     profileRouter = require('../routes/profile.server.routes'),
     restaurantRouter=require('../routes/restaurant.server.routes');
+    cors = require("cors");
 
 module.exports.init = () => {
     /* 
@@ -23,7 +24,7 @@ module.exports.init = () => {
 
     // enable request logging for development debugging
     app.use(morgan('dev'));
-
+    app.use(cors());
     // body parsing middleware
     app.use(bodyParser.json());
 
