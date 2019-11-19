@@ -17,22 +17,21 @@ export default class Profile extends React.Component{
         fetch('http://localhost:5000/api/restaurant')
             .then(response => response.json())
             .then(response => {
-                console.log(response)
-                console.log(JSON.stringify(response))
                 this.setState({data: JSON.stringify(response)})
                 console.log(this.state.data)
             })
     }
     componentDidMount = () => {
-        console.log("Did mount");
         this.getApi();
     }
 
     render(){
         let content;
         content = (
-        <div><RestaurantListings></RestaurantListings></div>
-        )
+            <div className="App">
+                <div><RestaurantListings></RestaurantListings></div>
+            </div>      
+            )
         return content;
     }
 }   

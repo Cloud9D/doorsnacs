@@ -28,7 +28,7 @@ export default class RestaurantListings extends React.Component{
             .then(response => response.json())
             .then(response => {
                 console.log(response.length)
-                console.log(JSON.stringify(response))
+                console.log(response)
                 this.setState({
                     category: response[0].category,
                     category1: response[1].category,
