@@ -29,7 +29,6 @@ describe('Restaurant CRUD tests', function() {
       });
   });
 
-  //need to check arrays
   it('should be able to retrieve a single restaurant', function(done) {
     Restaurant.findOne({name: "Mama's Best"}, function(err, restaurant) {
       if(err) {
@@ -82,24 +81,44 @@ describe('Restaurant CRUD tests', function() {
       });
   });
 
-
-/*
-  it('should be able to update a item', function(done) {
-    var updatedItem = { 
-      Price: 37.44
+  it('should be able to update a restaurant', function(done) {
+    var updatedRestaurant={
+      name: 'cool kids',
+      "location":{
+        "addressLine1":"Update In Progress",
+        "addressLine2":"Maybe tomorrow",
+        "city":"Miami",
+        "state":"Ohio",
+        "country":"USA",
+        "zipcode":435179
+      },
+      "itemsForSale":[{
+        "Title":"Bananas",
+        "Price":300,
+        "Type": [],
+        "Warnings": []
+      },
+      {
+        "Title":"Edible Jackets",
+        "Price":500,
+        "Type": [],
+        "Warnings": []
+      }]
     };
 
-    agent.put('/api/item/' + id)
-      .send(updatedItem)
+    agent.put('/api/restaurant/' + id)
+      .send(updatedRestaurant)
       .expect(200)
       .end(function(err, res) {
         should.not.exist(err);
         should.exist(res.body._id);
-        res.body.Title.should.equal('test');
-        res.body.Price.should.equal(37.44);
-  done();
+        res.body.name.should.equal('cool kids');
+        res.body.location.addressLine1.should.equal("Update In Progress");
+        res.body.itemsForSale[1].Title.should.equal("Edible Jackets");
+        res.body.itemsForSale.length.should.equal(2);
+        done();
       });
-  });*/
+  });
 
   it('should be able to delete a restaurant', function(done) {
     agent.delete('/api/restaurant/' + id)
