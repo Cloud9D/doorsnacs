@@ -27,13 +27,25 @@ exports.readAll = function (req, res) {
         }); 
 };
 
-/*
 exports.update = function(req,res){
         var restaurant = req.restaurant;
         //console.log(req.body);
-        Profile.findByIdAndUpdate(restaurant._id, {
-        Name: req.body.Name || restaurant.Name,
-       	Cart: req.body.Cart || restaurant.Cart,
+        Restaurant.findByIdAndUpdate(restaurant._id, {
+        name: req.body.name || restaurant.name,
+       	description: req.body.description || restaurant.description,
+        location:{
+            addressLine1: req.body.location.addressLine1 || restaurant.location.addressLine1,
+            addressLine2: req.body.location.addressLine2 || restaurant.location.addressLine2,
+            city: req.body.location.city || restaurant.location.city,
+            state: req.body.location.state || restaurant.location.state,
+            country: req.body.location.country || restaurant.location.country,
+            zipcode: req.body.location.zipcode || restaurant.location.zipcode
+        },
+        itemsForSale: req.body.itemsForSale || restaurant.itemsForSale,
+        category: req.body.category || restaurant.category,
+        pickUp: req.body.pickUp || restaurant.pickUp,
+        delivery: req.body.delivery || restaurant.delivery,
+        rating: req.body.rating || restaurant.rating
     }, {new: true})
     .then(i => {
         if(!i) {
@@ -54,7 +66,8 @@ exports.update = function(req,res){
         });
     });
         updated_t: Date.now();
-};*/
+};
+
 
 exports.delete = function(req,res){                                                                                                                                                                                  
         var restaurant =req.restaurant

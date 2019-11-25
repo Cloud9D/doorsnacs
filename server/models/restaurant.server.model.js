@@ -25,8 +25,8 @@ var schem=new Schema({
 	},
 	itemsForSale: [itemMod.schem],
 	category: [{type: String, enum: Object.values(Categories)}],
-	pickUp: Boolean,
-	delivery: Boolean,
+	pickUp: {type: Boolean, default: false},
+	delivery: {type: Boolean, default: false},
 	rating: {type: Number, default: -1},
 	created_at: Date
 });
