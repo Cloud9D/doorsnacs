@@ -1,25 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
-import logoDad from '../../assets/Dad.png'
-import logoMom from '../../assets/Mom.png'
-
 
 export default class RestaurantListings extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            category: [],
-            description: null,
-            itemsForSale: [],
-            //location: {addressLineOne: null, city: null, country: null, state: null, zip: null},
-            name: null,
-
-            category1: [],
-            description1: null,
-            itemsForSale1: [],
-            name1: null,
-
+            restaurantList: []
         }
     }
 
@@ -27,18 +14,8 @@ export default class RestaurantListings extends React.Component{
         fetch('http://localhost:5000/api/restaurant')
             .then(response => response.json())
             .then(response => {
-                console.log(response.length)
-                console.log(response)
-                this.setState({
-                    category: response[0].category,
-                    category1: response[1].category,
-                    description: response[0].description,
-                    description1: response[1].description,
-                    itemsForSale: response[0].itemsForSale,
-                    itemsForSale1: response[1].itemsForSale,
-                    name: response[0].name,
-                    name1: response[1].name,
-                })
+                this.setState({restaurantList: response})
+                console.log(this.state.restaurantList)
             })
     }
     componentDidMount = () => {
@@ -49,30 +26,30 @@ export default class RestaurantListings extends React.Component{
     render(){
         let content;
         content = (
-            <div style={{paddingTop:"20px"}}>
-            <div style={{paddingLeft:"20px", display:"inline-block"}}>
-                <Card style={{ width: '18rem'}}>
-                    <Card.Img variant="top" src={logoDad}/>
-                    <Card.Body>
-                        <Card.Title>{this.state.name}</Card.Title>
-                        <Card.Text>{this.state.description}</Card.Text>
-                        <Button variant="dark">Check Me Out</Button>
-                    </Card.Body>
-                </Card>
-            </div>
-            <div style={{paddingLeft:"20px", display:"inline-block"}}>
-                <Card style={{ width: '18rem'}}>
-                    <Card.Img variant="top" src={logoMom} />
-                    <Card.Body>
-                        <Card.Title>{this.state.name1}</Card.Title>
-                        <Card.Text>{this.state.description1}</Card.Text>
-                        <Button variant="dark">Check Me Out</Button>
-                    </Card.Body>
-                </Card>
+            <div className="container-fluid">
+            <div className="row" style={{paddingTop:"15px", paddingLeft:"15px"}}> {
+                this.state.restaurantList.map(restaurant =>
+                    <div style={{paddingRight: "30px"}}>    
+                        <Card className="text-left" style={{width:'300px'}}>
+                            <Card.Body>
+                                <Card.Img
+                                    variant="top"
+                                    className="mb-3"
+                                    src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps6498_MRR133247D07_30_5b_WEB-2.jpg"
+                                />
+                                <Card.Title>{restaurant.name}</Card.Title>
+                                <Card.Text>{restaurant.description}</Card.Text>
+                                <a href="#">
+                                    <Button variant="primary">Check Me Out</Button>
+                                </a>
+                            </Card.Body>
+                            <Card.Footer className="text-muted">{restaurant.rating}</Card.Footer>
+                        </Card>
+                    </div>)
+            }
             </div>
             </div>
         )
-        
         return content;
     }
 }   
