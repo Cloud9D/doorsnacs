@@ -13,16 +13,7 @@ export default class Profile extends React.Component{
         }
     }
 
-    getApi = () =>{
-        fetch('http://localhost:5000/api/restaurant')
-            .then(response => response.json())
-            .then(response => {
-                this.setState({data: JSON.stringify(response)})
-                console.log(this.state.data)
-            })
-    }
     componentDidMount = () => {
-        this.getApi();
     }
 
     render(){
