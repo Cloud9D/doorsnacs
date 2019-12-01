@@ -9,9 +9,36 @@ import './Header.css';
 import logo from '../../assets/logo.png'
 
 export default class Header extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            restaurantList: [],
+            filteredList: [],
+            searchName: "",
+            itemList: []
+        }
+    }
 
-    getRestaurant(){
+    getApi = () =>{
+        fetch('http://localhost:5000/api/restaurant')
+            .then(response => response.json())
+            .then(response => {
+                this.setState({restaurantList: response})
+            })
+    }
+    
+    searchApi = (value) =>{
+        var results = this.state.restaurantList.filter(({ name }) => {
+            return name.toLowerCase().includes(value.toLowerCase());
+        });
+        if(value == ""){results = []}
+        console.log(results);
+        this.setState({filteredList: results})
+    }
 
+    componentDidMount = () => {
+        console.log("Did Mount Search");
+        this.getApi();
     }
 
     render(){
@@ -33,14 +60,30 @@ export default class Header extends React.Component{
                         <Nav.Link href="Profile">Profile</Nav.Link>
                         <Nav.Link href="Restaurants">Restaurants</Nav.Link>
                     </Nav>
-                    <Form inline className="mr-sm-3">
-                        <FormControl
-                            type="text"
-                            placeholder="Search for Food"
-                            className="mr-sm-2"
-                        />
-                        <Button onChange={this.getRestaurant}>Search</Button>
-                    </Form>
+                    <div>
+                        <Form inline className="mr-sm-3">
+                            <Form.Control
+                                type="text"
+                                placeholder="Search for Food"
+                                className="mr-sm-2"
+                                onChange={event => {
+                                    if(event.target.value.length > 0){
+                                        this.searchApi(event.target.value)
+                                    }
+                                    else this.searchApi("")
+                                }
+                                }
+                            />
+                            <Button>Search</Button>
+                        </Form>
+                        <div>{this.state.filteredList.map(list => 
+                            <div className="listConatainer">
+                                <ul className="listing">
+                                    <li onClick={function(){console.log("clicked")}} className="listElements">{list.name}</li>
+                                </ul>
+                            </div>)}
+                        </div>
+                    </div>
                     <GoogleSignIn />
                 </Navbar.Collapse>
             </Navbar>

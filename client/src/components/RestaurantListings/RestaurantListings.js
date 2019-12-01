@@ -19,7 +19,7 @@ export default class RestaurantListings extends React.Component{
             })
     }
     componentDidMount = () => {
-        console.log("Did mount");
+        console.log("Did Mount Restaurant List");
         this.getApi();
     }
 
