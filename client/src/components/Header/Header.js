@@ -56,9 +56,9 @@ export default class Header extends React.Component{
                 <Navbar.Toggle />
                 <Navbar.Collapse>
                     <Nav className="mr-auto">
-                        <Nav.Link href="Home">Home</Nav.Link>
-                        <Nav.Link href="Profile">Profile</Nav.Link>
-                        <Nav.Link href="Restaurants">Restaurants</Nav.Link>
+                        <Nav.Link href="/Home">Home</Nav.Link>
+                        <Nav.Link href="/Profile">Profile</Nav.Link>
+                        <Nav.Link href="/Restaurants">Restaurants</Nav.Link>
                     </Nav>
                     <div>
                         <Form inline className="mr-sm-3">

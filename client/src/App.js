@@ -5,6 +5,7 @@ import NotFound from './views/NotFound'
 import Profile from './views/Profile/Profile'
 import Restaurants from './views/Restaurants/Restaurants'
 import Header from './components/Header/Header'
+import RestaurantSingle from './views/RestaurantSingle/RestaurantSingle'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/Home" component={Home} />
         <Route exact path="/Profile" component={Profile} />
         <Route exact path="/Restaurants" component={Restaurants} />
+        <Route exact path="/Restaurants/:id" component={(props) => <RestaurantSingle userId={props.match.params.id}/>}/>
         <Route exact path="/">
           <Redirect to="/Home" />
         </Route>
