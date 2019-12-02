@@ -36,6 +36,10 @@ export default class Header extends React.Component{
         this.setState({filteredList: results})
     }
 
+    redirectClick = (id) =>{
+        window.location.replace("/Restaurants/" + id);
+    }
+
     componentDidMount = () => {
         console.log("Did Mount Search");
         this.getApi();
@@ -43,7 +47,7 @@ export default class Header extends React.Component{
 
     render(){
         return (
-            <Navbar sticky="top" expand="lg" bg="white">
+            <Navbar sticky="top" expand="lg" bg="white" style={{height:"80px"}}>
                 <Navbar.Brand>
                     <img
                         alt="doorsnacs logo"
@@ -73,13 +77,13 @@ export default class Header extends React.Component{
                                     else this.searchApi("")
                                 }
                                 }
-                            />
+                                style={{width:"300px"}}/>
                             <Button>Search</Button>
                         </Form>
-                        <div>{this.state.filteredList.map(list => 
+                        <div style={{position:"fixed"}}>{this.state.filteredList.map(list => 
                             <div className="listConatainer">
                                 <ul className="listing">
-                                    <li onClick={function(){console.log("clicked")}} className="listElements">{list.name}</li>
+                                    <li onClick={() => {this.redirectClick(list._id)}} className="listElements">{list.name}</li>
                                 </ul>
                             </div>)}
                         </div>
