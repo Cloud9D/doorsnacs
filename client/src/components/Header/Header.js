@@ -9,14 +9,45 @@ import './Header.css';
 import logo from '../../assets/logo.png'
 
 export default class Header extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            restaurantList: [],
+            filteredList: [],
+            searchName: "",
+            itemList: []
+        }
+    }
 
-    getRestaurant(){
+    getApi = () =>{
+        fetch('http://localhost:5000/api/restaurant')
+            .then(response => response.json())
+            .then(response => {
+                this.setState({restaurantList: response})
+            })
+    }
+    
+    searchApi = (value) =>{
+        var results = this.state.restaurantList.filter(({ name }) => {
+            return name.toLowerCase().includes(value.toLowerCase());
+        });
+        if(value == ""){results = []}
+        console.log(results);
+        this.setState({filteredList: results})
+    }
 
+    redirectClick = (id) =>{
+        window.location.replace("/Restaurants/" + id);
+    }
+
+    componentDidMount = () => {
+        console.log("Did Mount Search");
+        this.getApi();
     }
 
     render(){
         return (
-            <Navbar sticky="top" expand="lg" bg="white">
+            <Navbar sticky="top" expand="lg" bg="white" style={{height:"80px"}}>
                 <Navbar.Brand>
                     <img
                         alt="doorsnacs logo"
@@ -29,18 +60,34 @@ export default class Header extends React.Component{
                 <Navbar.Toggle />
                 <Navbar.Collapse>
                     <Nav className="mr-auto">
-                        <Nav.Link href="Home">Home</Nav.Link>
-                        <Nav.Link href="Profile">Profile</Nav.Link>
-                        <Nav.Link href="Restaurants">Restaurants</Nav.Link>
+                        <Nav.Link href="/Home">Home</Nav.Link>
+                        <Nav.Link href="/Profile">Profile</Nav.Link>
+                        <Nav.Link href="/Restaurants">Restaurants</Nav.Link>
                     </Nav>
-                    <Form inline className="mr-sm-3">
-                        <FormControl
-                            type="text"
-                            placeholder="Search for Food"
-                            className="mr-sm-2"
-                        />
-                        <Button onChange={this.getRestaurant}>Search</Button>
-                    </Form>
+                    <div>
+                        <Form inline className="mr-sm-3">
+                            <Form.Control
+                                type="text"
+                                placeholder="Search for Food"
+                                className="mr-sm-2"
+                                onChange={event => {
+                                    if(event.target.value.length > 0){
+                                        this.searchApi(event.target.value)
+                                    }
+                                    else this.searchApi("")
+                                }
+                                }
+                                style={{width:"300px"}}/>
+                            <Button>Search</Button>
+                        </Form>
+                        <div style={{position:"fixed"}}>{this.state.filteredList.map(list => 
+                            <div className="listConatainer">
+                                <ul className="listing">
+                                    <li onClick={() => {this.redirectClick(list._id)}} className="listElements">{list.name}</li>
+                                </ul>
+                            </div>)}
+                        </div>
+                    </div>
                     <GoogleSignIn />
                 </Navbar.Collapse>
             </Navbar>

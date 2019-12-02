@@ -18,8 +18,13 @@ export default class RestaurantListings extends React.Component{
                 console.log(this.state.restaurantList)
             })
     }
+
+    redirectClick = (id) =>{
+        window.location.replace("/Restaurants/" + id);
+    }
+
     componentDidMount = () => {
-        console.log("Did mount");
+        console.log("Did Mount Restaurant List");
         this.getApi();
     }
 
@@ -40,7 +45,7 @@ export default class RestaurantListings extends React.Component{
                                 <Card.Title>{restaurant.name}</Card.Title>
                                 <Card.Text>{restaurant.description}</Card.Text>
                                 <a href="#">
-                                    <Button variant="primary">Check Me Out</Button>
+                                    <Button variant="primary" onClick={() => {this.redirectClick(restaurant._id)}}>Check Me Out</Button>
                                 </a>
                             </Card.Body>
                             <Card.Footer className="text-muted">{restaurant.rating}</Card.Footer>
