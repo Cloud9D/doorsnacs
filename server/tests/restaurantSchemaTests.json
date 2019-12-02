@@ -1,34 +1,146 @@
 {
 	"entries": [
 		{
-			"name": "Mama's Best",
-			"description": "Only the best",
+			"name": "Sally's Sweets",
+			"description": "The paradise to satisfy your sweet tooth",
 			"location":{
-				"addressLine1":"AAA",
+				"addressLine1":"5793 Paradise Lane",
 				"city":"Miami",
 				"state":"Florida",
 				"country":"USA",
-				"zipcode":33192
+				"zipcode":33114
 			},
 			"itemsForSale":[{
-				"Title":"Apples",
-        		"Price":3.99,
+				"Title":"Candy Apples",
+        		"Price":5.99,
         		"Type": [],
-        		"Warnings": []
-			}],
-			"category":"Mexican"
+        		"Warnings": ["Dairy Product"]
+			},{
+				"Title":"Caramel Fudge",
+				"Price":4.00,
+				"Type": [],
+        		"Warnings": ["Dairy Product"]
+			},{
+				"Title":"Original Cheesecake",
+				"Price":20.00,
+				"Type": [],
+				"Warnings": ["Dairy Product"]
+			},{
+				"Title":"Guava Pastry",
+				"Price":2.50,
+				"Type":[],
+				"Warnings":["Dairy Product"]
+			}
+			],
+			"category":"Sweets",
+			"pickUp":"true",
+			"delivery":"false",
+			"rating":4.7
 		},
 		{
-			"name": "Dada's Best",
-			"description": "Only the second best",
+			"name": "Candance's Candy Store",
+			"description": "A children's paradise",
 			"location":{
-				"addressLine1":"AAA",
-				"city":"Miami",
-				"state":"Florida",
+				"addressLine1":"4359 Coral Parkway",
+				"city":"Albany",
+				"state":"New York",
 				"country":"USA",
-				"zipcode":33192
+				"zipcode":12084
 			},
-			"category":["Asian","Fast Food"]
+			"itemsForSale":[{
+				"Title":"Assorted Chocolates",
+        		"Price":18.95,
+        		"Type": [],
+        		"Warnings": ["Dairy Product"]
+			},{
+				"Title":"Gummy Bears",
+				"Price":4.00,
+				"Type": [],
+        		"Warnings": ["Gelatin"]
+			},{
+				"Title":"Licorice",
+				"Price":8.00,
+				"Type": [],
+				"Warnings": []
+			},{
+				"Title":"Caramel Fudge",
+				"Price":4.00,
+				"Type": [],
+        		"Warnings": ["Dairy Product"]
+			}
+			],
+			"category":"Sweets",
+			"pickUp":"true",
+			"delivery":"false",
+			"rating":4.2
+		},
+		{
+			"name": "Tiger Express",
+			"description": "Tasty Asian-American cuisine",
+			"location":{
+				"addressLine1":"1937 NW 13th Street",
+				"city":"San Francisco",
+				"state":"California",
+				"country":"USA",
+				"zipcode":94016
+			},
+			"itemsForSale":[{
+				"Title":"Shrimp Tempura",
+        		"Price":6.25,
+        		"Type": ["Entree"],
+        		"Warnings": ["Seafood"]
+			},{
+				"Title":"Kung Pao Chicken",
+				"Price":3.50,
+				"Type": ["Entree"],
+        		"Warnings": ["Nuts","Peanuts"]
+			},{
+				"Title":"Broccoli Beef",
+				"Price":4.00,
+				"Type": ["Entree"],
+				"Warnings": []
+			}],
+			"category":["Lunch","Dinner","Fast Food","Asian"],
+			"pickUp":"true",
+			"delivery":"true",
+			"rating":3.5
+		},
+		{
+			"name": "Mario's Italian Shop",
+			"description": "",
+			"location":{
+				"addressLine1":"2794 SE 29th Road",
+				"city":"Redmond",
+				"state":"Washington",
+				"country":"USA",
+				"zipcode":98008
+			},
+			"itemsForSale":[{
+				"Title":"Spaghetti and Meatballs",
+        		"Price":9.00,
+        		"Type": ["Entree"],
+        		"Warnings": ["Wheat"]
+			},{
+				"Title":"Slice of Pizza",
+				"Price":2.25,
+				"Type": [],
+        		"Warnings": ["Dairy Product","Cheese"]
+			},{
+				"Title":"Calzone",
+				"Price":8.85,
+				"Type": [],
+				"Warnings": ["Dairy Product","Cheese"]
+			},{
+				"Title":"Rolls",
+				"Price":6.00,
+				"Type": [],
+				"Warnings": ["Dairy Product","Eggs"]
+			}
+		],
+			"category":["Lunch","Dinner","Italian"],
+			"pickUp":"false",
+			"delivery":"true",
+			"rating":3.9
 		}
 	]
 }

@@ -6,10 +6,12 @@ var mongoose=require('mongoose'),
 const Categories=Object.freeze({
 	Mexican: 'Mexican',
 	Asian: 'Asian',
+	Italian: 'Italian',
 	'Fast Food': 'Fast Food',
 	Breakfast: 'Breakfast',
 	Lunch: 'Lunch',
-	Dinner: 'Dinner'
+	Dinner: 'Dinner',
+	Sweets: 'Sweets'
 })
 
 var schem=new Schema({
