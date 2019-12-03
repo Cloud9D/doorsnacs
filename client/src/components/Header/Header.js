@@ -68,7 +68,7 @@ export default class Header extends React.Component{
                         <Form inline className="mr-sm-3">
                             <Form.Control
                                 type="text"
-                                placeholder="Search for Food"
+                                placeholder="Search for Restaurants"
                                 className="mr-sm-2"
                                 onChange={event => {
                                     if(event.target.value.length > 0){

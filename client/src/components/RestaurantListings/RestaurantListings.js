@@ -40,7 +40,7 @@ export default class RestaurantListings extends React.Component{
                                 <Card.Img
                                     variant="top"
                                     className="mb-3"
-                                    src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps6498_MRR133247D07_30_5b_WEB-2.jpg"
+                                    src="https://cdn.pixabay.com/photo/2016/09/13/18/38/silverware-1667988__340.png"
                                 />
                                 <Card.Title>{restaurant.name}</Card.Title>
                                 <Card.Text>{restaurant.description}</Card.Text>
