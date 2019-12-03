@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import GoogleSignIn from '../Google/GoogleSignIn'
 import './Header.css';
 import logo from '../../assets/logo.png'
+import cart from '../../assets/cart.png'
 
 export default class Header extends React.Component{
     constructor(props) {
@@ -68,7 +69,7 @@ export default class Header extends React.Component{
                         <Form inline className="mr-sm-3">
                             <Form.Control
                                 type="text"
-                                placeholder="Search for Food"
+                                placeholder="Search for Restaurants"
                                 className="mr-sm-2"
                                 onChange={event => {
                                     if(event.target.value.length > 0){
@@ -89,6 +90,8 @@ export default class Header extends React.Component{
                         </div>
                     </div>
                     <GoogleSignIn />
+                    <div style={{paddingLeft:"10px"}}><a href="/Cart"><img style={{width:"30px", height:"30px"}} src={cart}/></a></div>
+                    
                 </Navbar.Collapse>
             </Navbar>
         );
