@@ -18,7 +18,38 @@ export default class Profile extends React.Component{
             isSignedIn: false,
             Name: '',
             uri: '',
-            email: ''
+            email: '',
+            AccountID: "",
+            profileID: "",
+            profileList: '',
+            currentCart: [],
+            totalCost: 0.0
+        }
+    }
+
+    getCart = () => {
+        let auth2 = gapi.auth2.getAuthInstance();
+        let googleUser = auth2.currentUser.get();
+        let profile = googleUser.getBasicProfile();
+
+        if (googleUser.isSignedIn()) {
+            this.setState({accountId: profile.getId().toString()});
+            fetch('http://localhost:5000/api/profile')            
+                .then(response => response.json())
+                .then(response => {
+                    this.setState({profileList: response})
+
+                    var value = this.state.AccountID;
+                    var result = this.state.profileList.filter(({ AccountID }) => {
+                        return AccountID.includes(value)
+                    });
+                    this.setState({profileID: result[0]._id, currentCart: result[0].Cart})
+                    console.log(this.state.currentCart)
+                    for(const element of this.state.currentCart){
+                        this.setState({totalCost: this.state.totalCost + element.Price})
+                    }
+                    this.setState({loaded: true})
+                })
         }
     }
 
@@ -26,7 +57,7 @@ export default class Profile extends React.Component{
         var auth2 = gapi.auth2.getAuthInstance();
         var googleUser = auth2.currentUser.get();
         
-        if(googleUser.isSignedIn()){
+        if(googleUser.isSignedIn()) {
             let profile = googleUser.getBasicProfile();
 
             this.setState({
@@ -44,6 +75,8 @@ export default class Profile extends React.Component{
                 isAuthing: false,
             });
         }
+
+        this.getCart();
     }
 
     componentDidMount = () => {
@@ -60,7 +93,7 @@ export default class Profile extends React.Component{
         if(!this.state.isAuthing){
             if(this.state.isSignedIn){
                 content = (
-                    <div className="container mt-3">
+                    <div className="container mt-3 mb-5">
                         <div className="row">
                             <Image
                                 src={this.state.uri}
@@ -79,30 +112,24 @@ export default class Profile extends React.Component{
                             </div>
 
                             <div>
-                                {/* 
-                                    Has to be replaced with a function that iterates through
-                                    cart items and produces a <li></li> with the right data
-                                */}
                                 <ul>
-                                    <li className="mt-3 row space-between cart-item">
-                                        <p className="cart-item-product">Apples</p>
-                                        <p className="cart-item-price">$1.99</p>
-                                    </li>
-
-                                    <li className="row space-between cart-item">
-                                        <p className="cart-item-product">Apples</p>
-                                        <p className="cart-item-price">$1.99</p>
-                                    </li>
+                                    {
+                                        this.state.currentCart.map(item => (
+                                            <li className="mt-3 row space-between cart-item">
+                                                <p className="cart-item-product">{item.Title}</p>
+                                                <p className="cart-item-price">{item.Price}</p>
+                                            </li>
+                                        ))
+                                    }
                                 </ul>
 
                                 <div className="mt-3 row space-between">
                                     <h1>Total</h1>
-                                    <h1>$3.98</h1>
+                                    <h1>${this.state.totalCost}</h1>
                                 </div>
 
                                 <ButtonToolbar className="space-between mt-1 d-flex flex-row-reverse">
-                                    <Button variant="primary" size="lg">Checkout</Button>
-                                    <Button variant="outline-danger mr-2" size="lg">Clear</Button>
+                                    <Button href="cart" variant="primary" size="lg">Go to Cart</Button>
                                 </ButtonToolbar>
                             </div>
                         </div>
