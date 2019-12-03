@@ -3,6 +3,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import { PayPalButton } from "react-paypal-button-v2";
+import PaypalExpressBtn from 'react-paypal-express-checkout';
+
 
 export default class RestaurantSingle extends React.Component{
     constructor(props) {
@@ -81,38 +84,44 @@ export default class RestaurantSingle extends React.Component{
 
     render(){
         if(this.state.loaded){
-        return(
-            <div>
-                <div className="container-fluid">
-                <div className="row" style={{paddingTop:"15px", paddingLeft:"15px"}}> {
-                    this.state.currentCart.map(item =>
-                        <div style={{paddingRight: "30px"}}>    
-                            <Card className="text-left" style={{width:'300px'}}>
-                                <Card.Body>
-                                    <Card.Img
-                                        variant="top"
-                                        className="mb-3"
-                                        src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps6498_MRR133247D07_30_5b_WEB-2.jpg"
-                                    />
-                                    <Card.Title>{item.Title}</Card.Title>
-                                    <a href="#">
-                                        <Button variant="primary" onClick={() => {this.removeItem(item._id)}}>Remove from cart</Button>
-                                    </a>
-                                </Card.Body>
-                                <Card.Footer className="text-muted">${item.Price}</Card.Footer>
-                            </Card>
-                        </div>)
-                }
-                </div>
-                </div>
-                <div style={{paddingLeft: "20px", paddingTop: "30px"}}>
-                    <h2>Total Price {this.state.totalCost}</h2>
-                </div>
-                <div style={{paddingLeft:"20px", paddingTop:"15px"}}>
-                    <Button variant="primary" >Checkout</Button>
-                </div>
-            </div>        
-        )
+            return(
+                <div>
+                    <div className="container-fluid">
+                    <div className="row" style={{paddingTop:"15px", paddingLeft:"15px"}}> {
+                        this.state.currentCart.map(item =>
+                            <div style={{paddingRight: "30px"}}>    
+                                <Card className="text-left" style={{width:'300px'}}>
+                                    <Card.Body>
+                                        <Card.Img
+                                            variant="top"
+                                            className="mb-3"
+                                            src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps6498_MRR133247D07_30_5b_WEB-2.jpg"
+                                        />
+                                        <Card.Title>{item.Title}</Card.Title>
+                                        <a href="#">
+                                            <Button variant="primary" onClick={() => {this.removeItem(item._id)}}>Remove from cart</Button>
+                                        </a>
+                                    </Card.Body>
+                                    <Card.Footer className="text-muted">${item.Price}</Card.Footer>
+                                </Card>
+                            </div>)
+                    }
+                    </div>
+                    </div>
+                    <div style={{paddingLeft: "20px", paddingTop: "30px"}}>
+                        <h2>Total Price ${this.state.totalCost}</h2>
+                    </div>
+                    <div style={{paddingLeft:"20px", paddingTop:"15px"}}>
+                        <PayPalButton
+                                amount="0.01"
+                                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                                onSuccess={(details, data) => {
+                                alert("Transaction completed by " + details.payer.name.given_name);
+                                }}
+                        />
+                    </div>
+                </div>        
+            )
         }
         else{return(<div></div>)}
     }
