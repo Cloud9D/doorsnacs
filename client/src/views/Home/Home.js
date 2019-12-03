@@ -24,7 +24,9 @@ export default class Home extends React.Component{
         this.getApi();
 
     }
-
+    redirectClick = (id) =>{
+        window.location.replace("/Restaurants/" + id);
+    }
 
     render() {
         return (
