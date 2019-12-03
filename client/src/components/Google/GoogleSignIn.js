@@ -55,11 +55,8 @@ export default class GoogleSignIn extends React.Component {
 
             var value = googleUser.getBasicProfile().getId().toString();
             var result = this.state.profileList.filter(({ AccountID }) => {
-                console.log(value)
-                console.log(AccountID)
                 return AccountID.includes(value)
             });
-            console.log(result.length)
             if(result.length == 0){
                 this.setState({alreadyExists: false})
             }
