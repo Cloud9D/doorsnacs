@@ -7,7 +7,9 @@ export default class GoogleSignIn extends React.Component {
         super(props);
         this.state = { 
             isSignedIn: false,
-            Name: ''
+            Name: '',
+            profileList: [],
+            alreadyExists: null
         }
     }
 
@@ -27,6 +29,16 @@ export default class GoogleSignIn extends React.Component {
         window.location.reload();
     }
 
+    searchApi = (value) =>{
+        var result = this.state.profileList.filter(({ AccountID }) => {
+            return AccountID.includes(value)
+        });
+        if(result.length == 0){
+            this.setState({alreadyExists: false})
+        }
+        else{this.setState({alreadyExists: true})}
+    }
+
     onSuccess = () => {
         var auth2 = gapi.auth2.getAuthInstance();
         var googleUser = auth2.currentUser.get();
@@ -34,11 +46,26 @@ export default class GoogleSignIn extends React.Component {
         this.setState({
             isSignedIn: googleUser.isSignedIn(),
             Name: googleUser.getBasicProfile().getName(),
-            isAuthing: false
         });
-        console.log(this.state.isSignedIn);
-    }
 
+        fetch('http://localhost:5000/api/profile')
+        .then(response => response.json())
+        .then(response => {
+            this.setState({profileList: response})
+        }).then(this.searchApi(googleUser.getBasicProfile().getId())).then(this.searchApi()).then(console.log(this.state.alreadyExists))
+
+        if(!this.state.alreadyExists){
+            fetch("/",{
+                method: "post",
+                body: {
+                    "AccountID": googleUser.getBasicProfile().getId(),
+                    "Name": googleUser.getBasicProfile().getName(),
+                    "Cart": []
+                }
+            })
+        }
+    }
+    
     componentDidMount() {
         const successCallback = this.onSuccess;
         window.gapi.load('auth2', function() {
