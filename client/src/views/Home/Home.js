@@ -12,7 +12,7 @@ export default class Home extends React.Component{
     }
 
     getApi = () =>{
-        fetch('http://localhost:5000/api/restaurant')
+        fetch('/api/restaurant')
             .then(response => response.json())
             .then(response => {
                 this.setState({restaurantList: response})

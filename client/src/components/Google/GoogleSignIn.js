@@ -48,7 +48,7 @@ export default class GoogleSignIn extends React.Component {
             Name: googleUser.getBasicProfile().getName(),
         });
 
-        fetch('http://localhost:5000/api/profile')
+        fetch('/api/profile')
         .then(response => response.json())
         .then(response => {
             this.setState({profileList: response})
@@ -69,7 +69,7 @@ export default class GoogleSignIn extends React.Component {
                 Name: googleUser.getBasicProfile().getName().toString(),
             };
 
-            fetch("http://localhost:5000/api/profile",{
+            fetch("/api/profile",{
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json'

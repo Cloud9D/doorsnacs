@@ -26,7 +26,7 @@ export default class RestaurantSingle extends React.Component{
 
         if(googleUser.isSignedIn()){
             this.setState({AccountID: googleUser.getBasicProfile().getId().toString()})
-            fetch('http://localhost:5000/api/profile')            
+            fetch('/api/profile')            
                 .then(response => response.json())
                 .then(response => {
                     this.setState({profileList: response})
@@ -50,7 +50,7 @@ export default class RestaurantSingle extends React.Component{
     }
     
     removeItem = (id) =>{
-        var userProfile = "http://localhost:5000/api/profile/" + this.state.profileID;
+        var userProfile = "/api/profile/" + this.state.profileID;
 
         const idIndex = (element) => {
             return element._id == id}

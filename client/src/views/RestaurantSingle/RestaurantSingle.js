@@ -8,7 +8,7 @@ export default class RestaurantSingle extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            API: "http://localhost:5000/api/restaurant/" + this.props.userId,
+            API: "/api/restaurant/" + this.props.userId,
             restaurantSingle: [],
             profileList: [],
             AccountID: "",
@@ -29,7 +29,7 @@ export default class RestaurantSingle extends React.Component{
 
         if(googleUser.isSignedIn()){
             this.setState({AccountID: googleUser.getBasicProfile().getId().toString()})
-            fetch('http://localhost:5000/api/profile')            
+            fetch('/api/profile')            
                 .then(response => response.json())
                 .then(response => {
                     this.setState({profileList: response})
@@ -48,7 +48,7 @@ export default class RestaurantSingle extends React.Component{
         var auth2 = gapi.auth2.getAuthInstance();
         var googleUser = auth2.currentUser.get();
 
-        var userProfile = "http://localhost:5000/api/profile/" + this.state.profileID;
+        var userProfile = "/api/profile/" + this.state.profileID;
         this.state.currentCart.push(item)
 
         var profile = {

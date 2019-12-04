@@ -34,7 +34,7 @@ export default class Profile extends React.Component{
 
         if (googleUser.isSignedIn()) {
             this.setState({accountId: profile.getId().toString()});
-            fetch('http://localhost:5000/api/profile')            
+            fetch('/api/profile')            
                 .then(response => response.json())
                 .then(response => {
                     this.setState({profileList: response})
