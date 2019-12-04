@@ -113,7 +113,7 @@ export default class RestaurantSingle extends React.Component{
                     </div>
                     <div style={{paddingLeft:"20px", paddingTop:"15px"}}>
                         <PayPalButton
-                                amount="0.01"
+                                amount={this.state.totalCost}
                                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                                 onSuccess={(details, data) => {
                                 alert("Transaction completed by " + details.payer.name.given_name);
