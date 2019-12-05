@@ -39,7 +39,6 @@ export default class RestaurantSingle extends React.Component{
                         return AccountID.includes(value)
                     });
                     this.setState({profileID: result[0]._id, currentCart: result[0].Cart})
-                    console.log(this.state.currentCart)
                 })
         }
     }

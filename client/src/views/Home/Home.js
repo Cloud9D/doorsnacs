@@ -16,8 +16,6 @@ export default class Home extends React.Component{
             .then(response => response.json())
             .then(response => {
                 this.setState({restaurantList: response})
-                console.log(this.state.restaurantList)
-
             })
     }
     componentDidMount = () =>{

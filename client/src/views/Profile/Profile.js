@@ -33,18 +33,16 @@ export default class Profile extends React.Component{
         let profile = googleUser.getBasicProfile();
 
         if (googleUser.isSignedIn()) {
-            this.setState({accountId: profile.getId().toString()});
+            this.setState({AccountID: profile.getId().toString()});
             fetch('/api/profile')            
                 .then(response => response.json())
                 .then(response => {
                     this.setState({profileList: response})
-
                     var value = this.state.AccountID;
                     var result = this.state.profileList.filter(({ AccountID }) => {
                         return AccountID.includes(value)
                     });
                     this.setState({profileID: result[0]._id, currentCart: result[0].Cart})
-                    console.log(this.state.currentCart)
                     for(const element of this.state.currentCart){
                         this.setState({totalCost: this.state.totalCost + element.Price})
                     }

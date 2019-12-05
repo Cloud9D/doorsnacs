@@ -15,7 +15,6 @@ export default class RestaurantListings extends React.Component{
             .then(response => response.json())
             .then(response => {
                 this.setState({restaurantList: response})
-                console.log(this.state.restaurantList)
             })
     }
 
@@ -24,7 +23,6 @@ export default class RestaurantListings extends React.Component{
     }
 
     componentDidMount = () => {
-        console.log("Did Mount Restaurant List");
         this.getApi();
     }
 

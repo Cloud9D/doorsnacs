@@ -33,7 +33,6 @@ export default class Header extends React.Component{
             return name.toLowerCase().includes(value.toLowerCase());
         });
         if(value == ""){results = []}
-        console.log(results);
         this.setState({filteredList: results})
     }
 
@@ -42,7 +41,6 @@ export default class Header extends React.Component{
     }
 
     componentDidMount = () => {
-        console.log("Did Mount Search");
         this.getApi();
     }
 

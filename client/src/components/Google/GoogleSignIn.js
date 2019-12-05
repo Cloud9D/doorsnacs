@@ -25,7 +25,6 @@ export default class GoogleSignIn extends React.Component {
             isSignedIn: googleUser.isSignedIn(),
             Name: ''
         });
-        console.log(this.state.Name)
         window.location.reload();
     }
 
